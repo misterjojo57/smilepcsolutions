@@ -1,13 +1,15 @@
-import "./globals.css"; // ✅ Importation du fichier CSS global
-import Navbar from "@/components/Navbar";
+import Head from 'next/head';
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr">
-      <body className="bg-gray-100">
-        <Navbar /> {/* ✅ Navbar en haut de la page */}
-        <main className="container mx-auto p-4">{children}</main>
-      </body>
-    </html>
+    <>
+      <Head>
+        <title>Smile PC Solutions - Dépannage Informatique</title>
+        <meta name="description" content="Votre expert en dépannage informatique à Moyeuvre-Grande." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <main className="min-h-screen bg-gray-100">{children}</main>
+    </>
   );
 }
